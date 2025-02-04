@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-
+                @Html.DisplayNameFor(model => model.CurrrentSmiley)
             </th>
         </tr>
     </thead>
@@ -33,7 +33,7 @@
                 @Html.DisplayFor(modelItem => item.Address)
             </td>
             <td>
-
+                <img src="@Url.Content(item.CurrrentSmiley)"/>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

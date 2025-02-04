@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmileyPage.Data;
 
@@ -10,9 +11,11 @@ using SmileyPage.Data;
 namespace SmileyPage.Migrations
 {
     [DbContext(typeof(SmileyPageContext))]
-    partial class SmileyPageContextModelSnapshot : ModelSnapshot
+    [Migration("20250203200954_ModelUpdates")]
+    partial class ModelUpdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

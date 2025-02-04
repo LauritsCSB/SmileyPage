@@ -14,44 +14,36 @@ public static class SeedData
             serviceProvider.GetRequiredService<
                 DbContextOptions<SmileyPageContext>>()))
         {
-            // Look for any restaurants
+            // Look for any restaurants, remove them and re-seed
             if (context.Restaurant.Any())
             {
-                return; //DB has already been seeded
+                context.Restaurant.RemoveRange(context.Restaurant);
+                context.SaveChanges();
             }
             context.Restaurant.AddRange(
                 new Restaurant
                 {
                     Name = "Restaurant A",
                     Address = "Adresse A",
-                    Smilies = new List<Smiley>
-                    {
-                        new Smiley { Type = "/pictures/smiley1.png", IssueDate = new DateTime(2025, 1, 1)},
-                        new Smiley { Type = "/pictures/smiley2.png", IssueDate = new DateTime(2025, 2, 2)},
-                        new Smiley { Type = "/pictures/smiley3.png", IssueDate = new DateTime(2025, 3, 3)}
-                    }
+                    CurrrentSmiley = "~/pictures/smiley1.png",
+                    SecondSmiley = "~/pictures/smiley2.png",
+                    ThirdSmiley = "~/pictures/smiley3.png"
                 },
                 new Restaurant
                 {
                     Name = "Restaurant B",
                     Address = "Adresse B",
-                    Smilies = new List<Smiley>
-                    {
-                        new Smiley { Type = "/pictures/smiley4.png", IssueDate = new DateTime(2025, 4, 4)},
-                        new Smiley { Type = "/pictures/smiley1.png", IssueDate = new DateTime(2025, 5, 5)},
-                        new Smiley { Type = "/pictures/smiley2.png", IssueDate = new DateTime(2025, 6, 6)}
-                    }
+                    CurrrentSmiley = "~/pictures/smiley4.png",
+                    SecondSmiley = "~/pictures/smiley1.png",
+                    ThirdSmiley = "~/pictures/smiley2.png"
                 },
                 new Restaurant
                 {
                     Name = "Restaurant C",
                     Address = "Adresse C",
-                    Smilies = new List<Smiley>
-                    {
-                        new Smiley { Type = "/pictures/smiley3.png", IssueDate = new DateTime(2025, 7, 7)},
-                        new Smiley { Type = "/pictures/smiley4.png", IssueDate = new DateTime(2025, 8, 8)},
-                        new Smiley { Type = "/pictures/smiley1.png", IssueDate = new DateTime(2025, 9, 9)}
-                    }
+                    CurrrentSmiley = "~/pictures/smiley3.png",
+                    SecondSmiley = "~/pictures/smiley4.png",
+                    ThirdSmiley = "~/pictures/smiley1.png"
                 }
             );
             context.SaveChanges();

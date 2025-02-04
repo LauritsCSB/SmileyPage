@@ -7,6 +7,8 @@ namespace SmileyPage.Models
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Address { get; set; }
-        public List<Smiley>? Smilies { get; set; }
+        public string? CurrrentSmiley { get; set; }
+        public string? SecondSmiley { get; set; }
+        public string? ThirdSmiley { get; set; }
     }
 }
